@@ -14,11 +14,17 @@ gem 'sass-rails',     '5.1.0'
 gem 'turbolinks',     '5.2.0'
 gem 'webpacker',      '4.0.7'
 # gem 'redis', '~> 4.0'
-# gem 'bcrypt', '~> 3.1.7'
 # gem 'image_processing', '~> 1.2'
 
 group :development, :test do
   gem 'byebug', '11.0.1', platforms: %i[mri mingw x64_mingw]
+  gem 'pry', '~> 0.13.0'
+  gem 'pry-byebug', '~> 3.9'
+  gem 'pry-rails', '~> 0.3.9'
+  # gem 'pry', '0.12.2'
+  # gem 'pry', '0.13.0'
+  # gem 'pry-byebug', '3.9.0'
+  # gem 'pry-rails', '0.3.9'
 end
 
 group :development do
@@ -31,7 +37,7 @@ end
 
 group :test do
   gem 'capybara',                 '3.28.0'
-  gem 'guard',                    '2.15.0'
+  gem 'guard',                    '~> 2.18'
   gem 'guard-minitest',           '2.4.6'
   gem 'minitest',                 '5.11.3'
   gem 'minitest-reporters',       '1.3.8'
