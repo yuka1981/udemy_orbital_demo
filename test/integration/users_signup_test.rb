@@ -23,5 +23,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
     follow_redirect!
     assert_template 'users/show'
+    # 這邊的 logged_in? 是自己在 test_helper 中定義的
+    assert logged_in?
   end
 end
