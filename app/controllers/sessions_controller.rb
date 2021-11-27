@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user&.authenticate(params[:session][:password])
       # login user
       log_in(user)
-      redirect_to user
+      redirect_back_or user
     else
       # create error message
       flash.now[:danger] = 'Invalid email/password.'
@@ -17,9 +17,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.delete(:user_id)
-    @current_user = nil
-
+    log_out
     redirect_to root_path
   end
 end

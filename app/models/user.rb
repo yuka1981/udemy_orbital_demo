@@ -8,8 +8,10 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: true } # rails 6.1 之後不會 enforce case_sensitive
 
-  validates :password, presence: true, length: { minimum: 6 }
+  # has_secure_password will catch nil password when signup
   has_secure_password
+  # following code, allow_nil when user does not want to update password
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   def self.digest(string)
     # for fixture file

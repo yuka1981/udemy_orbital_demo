@@ -30,6 +30,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'email validation should accept valid addreses' do
+    # 這邊 valid_address 已經有的，不能在 fixture file 中使用同樣的 email
     valid_addresses = %w[tony@example.com JOHN@test.com MARY_smith-01@new.com tony.smith@example.com tony+smith@example.com]
     valid_addresses.each do |valid_address|
       @user.email = valid_address
