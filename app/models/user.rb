@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :snapshots, dependent: :destroy
+
   before_save { self.email = email.downcase } # save 之前把 email 轉成小寫
 
   validates :name, presence: true, length: { maximum: 60 }
@@ -17,5 +19,10 @@ class User < ApplicationRecord
     # for fixture file
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
+  end
+
+  def feed
+    # Snapshot.where("user_id = ?", id)
+    Snapshot.where(user_id: id)
   end
 end

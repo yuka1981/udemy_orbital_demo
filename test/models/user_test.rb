@@ -62,4 +62,12 @@ class UserTest < ActiveSupport::TestCase
     @user.password = @user.password_confirmation = 'p' * 5
     assert_not @user.valid?
   end
+
+  test 'associated snapshots should be destroyed' do
+    @user.save
+    @user.snapshots.create!(content: 'Greate job!')
+    assert_difference 'Snapshot.count', -1 do
+      @user.destroy
+    end
+  end
 end

@@ -10,6 +10,26 @@ carol:
   email: carol@example.com
   password_digest: <%= User.digest('password123') %>
 
+jane:
+  name: Jane Test
+  email: jane@example.com
+  password_digest: <%= User.digest('password123') %>
+
+mary:
+  name: Mary Test
+  email: mary@example.com
+  password_digest: <%= User.digest('password123') %>
+
+john:
+  name: John Test
+  email: john@example.com
+  password_digest: <%= User.digest('password123') %>
+
+frank:
+  name: Frank Test
+  email: frank@example.com
+  password_digest: <%= User.digest('password123') %>
+
 <% 30.times do |n| %>
 user_<%= n %>:
   name: <%= "User #{n}" %>
